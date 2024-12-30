@@ -1,0 +1,22 @@
+{
+  "name": "aituber",
+  "image": "ymd8bit/aituber:latest",
+  "runArgs": [
+    "--gpus=all",
+    "--shm-size=6g"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "workspaceMount": "source=/assets/ghq/github.com/ymd8bit/aituber,target=/workspaces/aituber,type=bind,consistency=delegated",
+  "workspaceFolder": "/workspaces/aituber",
+  "mounts": [
+    "source=/storage1/share,target=/share,type=bind,consistency=cached",
+  ],
+  "remoteUser": "root"
+}
