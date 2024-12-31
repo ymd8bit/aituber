@@ -25,10 +25,18 @@ RUN apt-get install -y --no-install-recommends \
     python-is-python3 \
     python3-dev \
     python3-pip \
-    python3-venv
+    python3-venv \
+    python3-tk
 
-RUN pip install --upgrade pip
-RUN pip install --index-url https://download.pytorch.org/whl/cu124 \
+ARG USER_NAME=toy
+RUN useradd -m -s /bin/bash $USER_NAME \
+    && echo "${USER_NAME} ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers
+
+USER $USER_NAME
+WORKDIR /home/$USER_NAME
+
+RUN pip install -U --upgrade pip
+RUN pip install -U --index-url https://download.pytorch.org/whl/cu124 \
     torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1
 # install onnxruntime for Cuda12
-RUN pip install onnxruntime-gpu==v1.20.1
+RUN pip install -U onnxruntime-gpu==v1.20.1

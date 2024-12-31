@@ -18,5 +18,5 @@
   "mounts": [
     "source=/storage1/share,target=/share,type=bind,consistency=cached",
   ],
-  "remoteUser": "root"
+  "remoteUser": "toy"
 }

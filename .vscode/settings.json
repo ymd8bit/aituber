@@ -1,5 +1,11 @@
 {
     "cSpell.words": [
-        "aituber"
+        "aituber",
+        "CUDA",
+        "cudnn",
+        "onnxruntime",
+        "torchaudio",
+        "torchvision",
+        "venv"
     ]
 }
